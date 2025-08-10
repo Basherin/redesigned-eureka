@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stroke Screening — Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Stroke Screening — Demo</h1>
+    <p class="muted">Client-side screening only. Not a medical diagnosis. For testing/demo purposes only.</p>
+
+    <div class="video-wrap">
+      <video id="input_video" autoplay muted playsinline></video>
+      <canvas id="overlay"></canvas>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn">Start</button>
+      <button id="stopBtn" disabled>Stop</button>
+      <button id="downloadBtn" disabled>Download Report</button>
+    </div>
+
+    <div id="result" class="result">
+      <h2>Result</h2>
+      <p id="score">No data yet</p>
+      <p id="advice"></p>
+    </div>
+
+    <details class="info">
+      <summary>How it works</summary>
+      <ol>
+        <li>Captures 8 seconds of frontal video from your webcam.</li>
+        <li>Uses MediaPipe FaceMesh to extract facial landmarks in real time.</li>
+        <li>Computes a simple mouth-asymmetry score and eye/gaze asymmetry as screening signals.</li>
+      </ol>
+      <strong>Important:</strong> This is an experimental screening tool for development/demo only. If you suspect stroke, call emergency services immediately.
+    </details>
+
+    <footer>
+      <small>Built with MediaPipe FaceMesh. Source available on GitHub.</small>
+    </footer>
+  </div>
+
+  <!-- MediaPipe and utils -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+
+  <script src="app.js"></script>
+</body>
+</html>
